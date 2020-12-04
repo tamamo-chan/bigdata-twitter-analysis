@@ -59,7 +59,7 @@ Python 2.7
 9. Run the sentiment analysis:
 
         spark-submit --master 'local[3]' --jars spark-streaming-kafka-0-8-assembly_2.11-2.4.7.jar \
-        spark-streaming/python3/trending_topics_sentiment.py twitter_stream
+        spark-streaming/trending_topics_sentiment.py twitter_stream
 
 This will feed data to the website, where you can see the analysis being done. In total, you should now have four
 consoles open and a web browser to check the result. 
