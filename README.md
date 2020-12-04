@@ -70,3 +70,9 @@ Credits to http://davidiscoding.com/real-time-twitter-sentiment-analysis-pt-1-in
 for providing most of the code. We have fixed minor issues, like faulty flask 
 argument passing and removed the need for quickstart.cloudera servers, as 
 they no longer exist. 
+
+# FAQ
+
+Q: Getting ImportError: cannot import name defaultdict
+
+A: Ensure the nltk library is version 3.0.0. The newest 3.5 does not work with Python 2.7. 
