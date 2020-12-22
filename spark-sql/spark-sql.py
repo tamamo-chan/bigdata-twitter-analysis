@@ -21,6 +21,10 @@ sqlContext = SQLContext(sc)
 covDF = sqlContext.read.json("result.json")
 covDF.registerTempTable("cases")
 
+
+sentimentDF = sqlContext.read.json("sentiment.json")
+#sentimentDF.show()
+
 #x =  sqlContext.sql("select date from cases where date > 20201212").collect()
 #y =  sqlContext.sql("select positiveIncrease from cases where date > 20201212").collect
 
@@ -29,10 +33,18 @@ covDF.registerTempTable("cases")
 #fig = plt.figure()
 #fig.savefig('figure.png')
 
+                                                                                                                                                     
 covDF.registerTempTable("cases")
 covRDD = sqlContext.sql("select date, positiveIncrease from cases where date > 20201212 order by date asc")
 covPandas = covRDD.toPandas()
-plot = covPandas.plot(kind='barh',x='date',y='positiveIncrease',colormap='winter_r')
+sentimentPandas = sentimentDF.toPandas()                                                                                                                                                     
+covPlot = covPandas.plot(kind='barh',x='date',y='positiveIncrease',colormap='winter_r')
+tweetsPlot = sentimentPandas.plot(kind='barh',x='date',y='tweets',colormap='winter_r')
+sentimentPlot = sentimentPandas.plot(kind='barh',x='date',y='positiveSentiment',colormap='winter_r')
 
-fig = plot.get_figure()
-fig.savefig('figure.png')
+fig1 = covPlot.get_figure()
+fig1.savefig('figure1.png')
+fig2 = tweetsPlot.get_figure()
+fig2.savefig('figure2.png')
+fig3 = sentimentPlot.get_figure()
+fig3.savefig('figure3.png')
