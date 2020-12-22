@@ -30,9 +30,9 @@ covDF.registerTempTable("cases")
 #fig.savefig('figure.png')
 
 covDF.registerTempTable("cases")
-covRDD = sqlContext.sql("select date, positiveIncrease from cases where date > 20201212")
+covRDD = sqlContext.sql("select date, positiveIncrease from cases where date > 20201212 order by date asc")
 covPandas = covRDD.toPandas()
-plt.hist(covPandas)
+plot = covPandas.plot(kind='barh',x='date',y='positiveIncrease',colormap='winter_r')
 
-fig = plt.figure()
+fig = plot.get_figure()
 fig.savefig('figure.png')
