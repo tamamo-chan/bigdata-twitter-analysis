@@ -65,7 +65,8 @@ This will feed data to the website, where you can see the analysis being done. I
 consoles open and a web browser to check the result. 
 
 10. Run the insight generator by running 
-    python spark-sql.py script
+    python spark-sql.py script.
+    
    It will generate the figures in the folder the script is located as a png image files.
 
 # Credits
