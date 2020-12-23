@@ -64,6 +64,10 @@ Python 2.7
 This will feed data to the website, where you can see the analysis being done. In total, you should now have four
 consoles open and a web browser to check the result. 
 
+10. Run the insight generator by running 
+    python spark-sql.py script
+   It will generate the figures in the folder the script is located as a png image files.
+
 # Credits
 
 Credits to http://davidiscoding.com/real-time-twitter-sentiment-analysis-pt-1-introduction 
